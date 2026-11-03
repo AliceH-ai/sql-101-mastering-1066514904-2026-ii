@@ -1,0 +1,57 @@
+/*coffee_coop_db=#
+coffee_coop_db=# SELECT
+coffee_coop_db-#     T1.document_number AS document,
+coffee_coop_db-#     T1.first_name      AS first_name,
+coffee_coop_db-#     T1.last_name       AS last_name,
+coffee_coop_db-#     T2.farm_name       AS farm
+coffee_coop_db-# FROM farm.farmers AS T1
+coffee_coop_db-# LEFT JOIN farm.farms AS T2
+coffee_coop_db-#     ON T1.farmer_id = T2.farmer_id
+coffee_coop_db-# WHERE T1.municipality_code = '54518';
+  document  |    first_name     |     last_name      |       farm
+------------+-------------------+--------------------+------------------
+ 1061690671 | Guillermo Pedro   | Arias RodrÃ­guez    | La Selva
+ 712758473  | Wilson            | LÃ³pez Villamizar   | El Silencio
+ 134410171  | Orlando           | Salazar BermÃºdez   | El Diamante
+ 870240973  | Jairo             | Molina PabÃ³n       | El Recuerdo
+ 727945493  | Gloria            | MarÃ­n Rivera       | La Esperanza
+ 549054771  | MarÃ­a             | Burbano Duarte     | El Nogal
+ 549054771  | MarÃ­a             | Burbano Duarte     | La Divisa
+ 622105662  | Alejandra         | Molina Torres      | La Carolina
+ 622105662  | Alejandra         | Molina Torres      | La Cristalina
+ 622105662  | Alejandra         | Molina Torres      | Villa Rosa
+ 437443011  | JuliÃ¡n            | PeÃ±a Betancur      | Los Arrayanes
+ 356207226  | Luisa             | Caicedo Restrepo   | El Brillante
+ 356207226  | Luisa             | Caicedo Restrepo   | La Cascada
+ 578947645  | Mario             | Uribe CuÃ©llar      | El Porvenir
+ 578947645  | Mario             | Uribe CuÃ©llar      | La Primavera
+ 24999630   | Esperanza         | Romero Betancur    | El Oasis
+ 24999630   | Esperanza         | Romero Betancur    | La Florida
+ 914044314  | AncÃ­zar Cristian  | PolanÃ­a Delgado    | Los Arrayanes
+ 358946393  | Carmen            | CÃ¡rdenas Moreno    | El Horizonte
+ 358946393  | Carmen            | CÃ¡rdenas Moreno    | El Porvenir
+ 358946393  | Carmen            | CÃ¡rdenas Moreno    | La Esperanza
+ 358946393  | Carmen            | CÃ¡rdenas Moreno    | La Primavera
+ 811782754  | NicolÃ¡s           | GonzÃ¡lez RodrÃ­guez | El Guayabo
+ 463842401  | RocÃ­o             | Ãlvarez CÃ¡rdenas   | Bellavista
+ 463842401  | RocÃ­o             | Ãlvarez CÃ¡rdenas   | El Encanto
+ 463842401  | RocÃ­o             | Ãlvarez CÃ¡rdenas   | La Cumbre
+ 343256743  | Dora              | HernÃ¡ndez Correa   | Cafetal Viejo
+ 811557533  | Adriana           | Mosquera Ospina    | El Vergel
+ 811557533  | Adriana           | Mosquera Ospina    | Las Palmas
+ 974842644  | Arturo            | HernÃ¡ndez Uribe    | Bella Vista Alta
+ 974842644  | Arturo            | HernÃ¡ndez Uribe    | El HiguerÃ³n
+ 91091638   | Daniel            | Bonilla Duarte     | El Horizonte
+ 91091638   | Daniel            | Bonilla Duarte     | La Esperanza
+ 91091638   | Daniel            | Bonilla Duarte     | La Primavera
+ 42562183   | RocÃ­o Manuela     | Jaimes Cardona     | El ArrayÃ¡n
+ 42562183   | RocÃ­o Manuela     | Jaimes Cardona     | El Silencio
+ 1148351420 | InÃ©s              | JimÃ©nez Jaimes     | El Recuerdo
+ 1148351420 | InÃ©s              | JimÃ©nez Jaimes     | La Gaitana
+ 674769591  | IvÃ¡n              | Zapata Ortiz       | El MesÃ³n
+ 802182926  | Antonio           | DÃ­az VÃ©lez         | El Mango
+ 802182926  | Antonio           | DÃ­az VÃ©lez         | Las Mercedes
+ 802182926  | Antonio           | DÃ­az VÃ©lez         | Las OrquÃ­deas
+ 1117597835 | Cecilia Lorena    | DÃ­az GarcÃ­a        | La MontaÃ±a
+ 700421194  | Teresa            | Torres Giraldo     | El Tesoro
+-- Más  --
