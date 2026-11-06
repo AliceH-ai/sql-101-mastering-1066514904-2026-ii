@@ -1,8 +1,6 @@
 -- Exercise 05 - a
 -- Inactive collection points: name, address and municipality code
-/*
--- Exercise 05 - a
--- Inactive collection points: name, address and municipality code
+
 
 SELECT
     T1.point_name        AS point,
@@ -11,12 +9,7 @@ SELECT
 FROM buy.collection_points AS T1
 WHERE NOT T1.is_active;
 
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.point_name        AS point,
-coffee_coop_db-#     T1.address_line      AS address,
-coffee_coop_db-#     T1.municipality_code AS municipality_code
-coffee_coop_db-# FROM buy.collection_points AS T1
-coffee_coop_db-# WHERE NOT T1.is_active;
+/*
            point            |      address       | municipality_code
 ----------------------------+--------------------+-------------------
  Punto de Compra El Banco 1 | Calle 17 # 34-54   | 47245

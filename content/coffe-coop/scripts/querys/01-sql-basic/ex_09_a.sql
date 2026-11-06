@@ -1,13 +1,19 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.analysis_id    AS analysis,        -- ?
-coffee_coop_db-#     T1.delivery_id    AS delivery,
-coffee_coop_db-#     T1.moisture_pct   AS moisture_pct,    -- ?
-coffee_coop_db-#     T1.yield_factor   AS yield_factor,    -- ?
-coffee_coop_db-#     T1.cup_score      AS cup_score        -- ?
-coffee_coop_db-# FROM buy.quality_analyses AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-#   AND T1.cup_score >= 85
-coffee_coop_db-# ORDER BY T1.cup_score DESC;
+ -- Exercise 09 - a
+-- Quality analyses from 2026-09-30 with cup score >= 85: analysis, delivery, moisture, yield factor and cup score with aliases, sorted by cup score descending
+ 
+ 
+ 
+ SELECT
+     T1.analysis_id    AS analysis,        
+     T1.delivery_id    AS delivery,
+     T1.moisture_pct   AS moisture_pct,    
+     T1.yield_factor   AS yield_factor,    
+     T1.cup_score      AS cup_score        
+ FROM buy.quality_analyses AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+   AND T1.cup_score >= 85
+ ORDER BY T1.cup_score DESC;
+/*
       analysis      |      delivery       | moisture_pct | yield_factor | cup_score
 --------------------+---------------------+--------------+--------------+-----------
  QA-20260930-000102 | DLV-20260930-000155 |        12.31 |        94.01 |     87.28

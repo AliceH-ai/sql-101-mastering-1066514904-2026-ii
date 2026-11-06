@@ -1,11 +1,14 @@
-/** Ejercicio 1 inciso c
-Repita el literal b) ordenando el resultado alfab´eticamente por el nombre del
-departamento
-coffee_coop_db=# SELECT
-coffee_coop_db-# T1.department_code AS code,
-coffee_coop_db-# T1.department_name AS department
-coffee_coop_db-# FROM geo.departments AS T1
-coffee_coop_db-# ORDER BY T1.department_name;
+Ejercicio 1 inciso c
+Repita el literal b) ordenando el resultado alfabeticamente por el nombre del
+departamente
+
+SELECT
+T1.department_code AS code,
+T1.department_name AS department
+FROM geo.departments AS T1
+ORDER BY T1.department_name;
+
+/**
  code |                        department
 ------+----------------------------------------------------------
  91   | Amazonas

@@ -1,16 +1,21 @@
+-- Exercise 10 - b
+-- Settlements from 2026-09-30 with status 'pending', sorted by net value descending
+ 
+ 
+ SELECT
+     T1.settlement_id         AS settlement,       
+     T1.delivery_id           AS delivery,         
+     T1.net_weight_kg         AS net_weight_kg,
+     T1.price_per_kg_applied  AS price_per_kg,
+     T1.gross_amount          AS gross_cop,
+     T1.deductions_amount     AS deductions_cop,   
+     T1.net_amount            AS net_cop
+ FROM pay.settlements AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'        
+   AND T1.status = 'pending'                       
+ ORDER BY T1.net_amount DESC;
+
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.settlement_id         AS settlement,       -- ?
-coffee_coop_db-#     T1.delivery_id           AS delivery,         -- ?
-coffee_coop_db-#     T1.net_weight_kg         AS net_weight_kg,
-coffee_coop_db-#     T1.price_per_kg_applied  AS price_per_kg,
-coffee_coop_db-#     T1.gross_amount          AS gross_cop,
-coffee_coop_db-#     T1.deductions_amount     AS deductions_cop,   -- ?
-coffee_coop_db-#     T1.net_amount            AS net_cop
-coffee_coop_db-# FROM pay.settlements AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'        -- ?
-coffee_coop_db-#   AND T1.status = 'pending'                       -- ?
-coffee_coop_db-# ORDER BY T1.net_amount DESC;
      settlement      |      delivery       | net_weight_kg | price_per_kg | gross_cop  | deductions_cop |  net_cop
 ---------------------+---------------------+---------------+--------------+------------+----------------+------------
  STL-20261001-000040 | DLV-20260930-000256 |        278.85 |     21857.00 | 6094824.45 |           0.00 | 6094824.45

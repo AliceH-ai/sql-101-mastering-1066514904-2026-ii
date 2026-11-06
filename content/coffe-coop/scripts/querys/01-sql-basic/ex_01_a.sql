@@ -1,7 +1,9 @@
-/** Ejercicio numero 1
+ Ejercicio numero 1
  consulta 1, seleccione todas las tablas y columnas 
-**\
-coffee_coop_db=# SELECT * FROM geo.departments;
+
+SELECT * FROM geo.departments;
+/*
+
  department_code |                     department_name
 -----------------+----------------------------------------------------------
  05              | Antioquia

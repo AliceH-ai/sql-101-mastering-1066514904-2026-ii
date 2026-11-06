@@ -1,13 +1,16 @@
+-- Exercise 06 - a
+-- Female members (gender = 'F') from Pamplona (54518): document, first name, last name and phone with aliases, sorted by last name and then by first name
+
+SELECT
+T1.document_number AS document,
+T1.first_name      AS first_name,
+T1.last_name       AS last_name,
+T1.phone_number    AS phone
+FROM farm.farmers AS T1
+WHERE T1.gender = 'F'
+AND T1.municipality_code = '54518'
+ORDER BY T1.last_name ASC, T1.first_name ASC;
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.document_number AS document,
-coffee_coop_db-#     T1.first_name      AS first_name,
-coffee_coop_db-#     T1.last_name       AS last_name,
-coffee_coop_db-#     T1.phone_number    AS phone
-coffee_coop_db-# FROM farm.farmers AS T1
-coffee_coop_db-# WHERE T1.gender = 'F'
-coffee_coop_db-#   AND T1.municipality_code = '54518'
-coffee_coop_db-# ORDER BY T1.last_name ASC, T1.first_name ASC;
   document  |    first_name     |     last_name     |   phone
 ------------+-------------------+-------------------+------------
  768461420  | Marleny           | Agudelo Sandoval  | 3242280898

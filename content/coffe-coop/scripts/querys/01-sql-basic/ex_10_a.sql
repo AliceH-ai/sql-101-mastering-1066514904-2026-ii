@@ -1,13 +1,19 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.settlement_id        AS settlement,
-coffee_coop_db-#     T1.delivery_id          AS delivery,
-coffee_coop_db-#     T1.net_weight_kg        AS net_weight_kg,
-coffee_coop_db-#     T1.price_per_kg_applied AS price_per_kg,
-coffee_coop_db-#     T1.gross_amount         AS gross_cop,
-coffee_coop_db-#     T1.deductions_amount    AS deductions_cop,
-coffee_coop_db-#     T1.net_amount           AS net_cop
-coffee_coop_db-# FROM pay.settlements AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%';
+-- Exercise 10 - a
+-- Settlements generated on 2026-09-30: settlement, delivery, net weight, applied price, gross value, deductions and net value with aliases
+
+SELECT
+     T1.settlement_id        AS settlement,
+     T1.delivery_id          AS delivery,
+     T1.net_weight_kg        AS net_weight_kg,
+     T1.price_per_kg_applied AS price_per_kg,
+     T1.gross_amount         AS gross_cop,
+     T1.deductions_amount    AS deductions_cop,
+     T1.net_amount           AS net_cop
+ FROM pay.settlements AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%';
+
+/*
+
      settlement      |      delivery       | net_weight_kg | price_per_kg |  gross_cop  | deductions_cop |   net_cop
 ---------------------+---------------------+---------------+--------------+-------------+----------------+-------------
  STL-20261001-000006 | DLV-20260930-000003 |        109.68 |     22083.00 |  2422063.44 |           0.00 |  2422063.44

@@ -1,13 +1,17 @@
-/*coffee_coop_db=#
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.delivery_id     AS delivery,
-coffee_coop_db-#     T1.delivered_at    AS received_at,
-coffee_coop_db-#     T1.coffee_type     AS coffee_type,
-coffee_coop_db-#     T1.gross_weight_kg AS gross_weight_kg
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-#   AND T1.coffee_type IN ('wet_parchment', 'cherry')
-coffee_coop_db-# ORDER BY T1.gross_weight_kg DESC;
+-- Exercise 08 - c
+-- Deliveries from 2026-09-30 whose coffee type is IN ('wet parchment', 'cherry'), sorted by gross weight descending
+
+
+ SELECT
+     T1.delivery_id     AS delivery,
+     T1.delivered_at    AS received_at,
+     T1.coffee_type     AS coffee_type,
+     T1.gross_weight_kg AS gross_weight_kg
+ FROM buy.deliveries AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+   AND T1.coffee_type IN ('wet_parchment', 'cherry')
+   ORDER BY T1.gross_weight_kg DESC;
+/*
       delivery       |     received_at     |  coffee_type  | gross_weight_kg
 ---------------------+---------------------+---------------+-----------------
  DLV-20260930-000081 | 2026-09-30 09:17:37 | cherry        |          475.13

@@ -1,17 +1,13 @@
--- Exercise 03 - a
--- Certifications: name, issuer and premium per kg, highest premium first
-/*SELECT
+"""Exercise 03 - a
+-- Certifications: name, issuer and premium per kg, highest premium first"""
+SELECT
     T1.certification_name AS certification,
     T1.issuing_body       AS issuer,
     T1.premium_per_kg     AS premium_per_kg_cop
 FROM farm.certifications AS T1
 ORDER BY T1.premium_per_kg DESC;
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.certification_name AS certification,
-coffee_coop_db-#     T1.issuing_body       AS issuer,
-coffee_coop_db-#     T1.premium_per_kg     AS premium_per_kg_cop
-coffee_coop_db-# FROM farm.certifications AS T1
-coffee_coop_db-# ORDER BY T1.premium_per_kg DESC;
+
+/*
     certification    |              issuer               | premium_per_kg_cop
 ---------------------+-----------------------------------+--------------------
  Orgßnico            | Ente certificador orgßnico        |             800.00
@@ -22,6 +18,3 @@ coffee_coop_db-# ORDER BY T1.premium_per_kg DESC;
  C.A.F.E. Practices  | Starbucks / SCS Global Services   |             250.00
  4C                  | 4C Services                       |             150.00
 (7 filas)
-
-
-coffee_coop_db=#

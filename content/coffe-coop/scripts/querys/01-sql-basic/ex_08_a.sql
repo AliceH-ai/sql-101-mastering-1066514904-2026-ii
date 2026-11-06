@@ -1,13 +1,17 @@
-coffee_coop_db=# /*SELECT
-coffee_coop_db-#     T1.delivery_id         AS delivery,
-coffee_coop_db-#     T1.farm_id             AS farm_id,
-coffee_coop_db-#     T1.collection_point_id AS collection_point_id,
-coffee_coop_db-#     T1.delivered_at        AS received_at,
-coffee_coop_db-#     T1.coffee_type         AS coffee_type,
-coffee_coop_db-#     T1.gross_weight_kg     AS gross_weight_kg
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-# ORDER BY T1.delivered_at ASC;
+-- Exercise 08 - a
+-- Deliveries received on 2026-09-30 (LIKE on delivery_id): delivery, farm, collection point, received time, coffee type and gross weight with aliases, sorted by reception time
+
+SELECT
+     T1.delivery_id         AS delivery,
+     T1.farm_id             AS farm_id,
+     T1.collection_point_id AS collection_point_id,
+     T1.delivered_at        AS received_at,
+     T1.coffee_type         AS coffee_type     
+     T1.gross_weight_kg     AS gross_weight_kg
+ FROM buy.deliveries AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+ ORDER BY T1.delivered_at ASC;
+/*
       delivery       | farm_id | collection_point_id |     received_at     |  coffee_type  | gross_weight_kg
 ---------------------+---------+---------------------+---------------------+---------------+-----------------
  DLV-20260930-000001 |  121925 |                  68 | 2026-09-30 06:01:10 | dry_parchment |           51.53

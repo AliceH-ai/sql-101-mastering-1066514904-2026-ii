@@ -1,13 +1,18 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.analysis_id  AS analysis,          -- ?
-coffee_coop_db-#     T1.delivery_id  AS delivery,
-coffee_coop_db-#     T1.moisture_pct AS moisture_pct,      -- ?
-coffee_coop_db-#     T1.analyst_name AS analyst_name,      -- ?
-coffee_coop_db-#     T1.observations AS observations       -- ?
-coffee_coop_db-# FROM buy.quality_analyses AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-#   AND T1.moisture_pct NOT BETWEEN 10 AND 12
-coffee_coop_db-# ORDER BY T1.moisture_pct DESC;
+ -- Exercise 09 - c
+-- Non-accepted quality analyses from 2026-09-30 that have observations (IS NOT NULL), sorted by defect percentage descending
+ 
+ 
+ SELECT
+     T1.analysis_id  AS analysis,          
+     T1.delivery_id  AS delivery,
+     T1.moisture_pct AS moisture_pct,      
+     T1.analyst_name AS analyst_name,      
+     T1.observations AS observations       
+ FROM buy.quality_analyses AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+   AND T1.moisture_pct NOT BETWEEN 10 AND 12
+ ORDER BY T1.moisture_pct DESC;
+/*
       analysis      |      delivery       | moisture_pct |    analyst_name    |                          observations
 --------------------+---------------------+--------------+--------------------+-----------------------------------------------------------------
  QA-20260930-000104 | DLV-20260930-000214 |        17.68 | Carolina Rodr├¡guez | Olor a fermento en la muestra.

@@ -1,12 +1,18 @@
-/* coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.farm_name      AS farm,
-coffee_coop_db-#     T1.rural_district AS rural_district,
-coffee_coop_db-#     T1.total_area_ha  AS area_ha,
-coffee_coop_db-#     T1.altitude_masl  AS altitude_masl
-coffee_coop_db-# FROM farm.farms AS T1
-coffee_coop_db-# WHERE T1.municipality_code = '54518'
-coffee_coop_db-#   AND T1.altitude_masl BETWEEN 1600 AND 1800
-coffee_coop_db-# ORDER BY T1.rural_district ASC, T1.total_area_ha DESC;
+-- Exercise 07 - b
+-- Farms in Pamplona (54518) with altitude BETWEEN 1600 and 1800 m.a.s.l., sorted by rural district ascending and then by area descending
+
+
+ SELECT
+     T1.farm_name      AS farm,
+     T1.rural_district AS rural_district,
+     T1.total_area_ha  AS area_ha,
+     T1.altitude_masl  AS altitude_masl
+FROM farm.farms AS T1
+WHERE T1.municipality_code = '54518'
+AND T1.altitude_masl BETWEEN 1600 AND 1800
+ORDER BY T1.rural_district ASC, T1.total_area_ha DESC;
+
+/*
        farm       |    rural_district    | area_ha | altitude_masl
 ------------------+----------------------+---------+---------------
  Los Pinos        | Alcaparral           |    1.67 |          1771

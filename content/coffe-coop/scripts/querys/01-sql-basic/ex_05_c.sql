@@ -1,16 +1,17 @@
 -- Exercise 05 - c
 -- Collection points that are inactive OR have no phone number
+
+ SELECT
+     T1.point_name        AS point,
+     T1.address_line      AS address,
+     T1.municipality_code AS municipality_code,
+     T1.phone_number      AS phone_number,
+   T1.is_active         AS is_active
+ FROM buy.collection_points AS T1
+ WHERE NOT T1.is_active
+ OR T1.phone_number IS NULL
+ ORDER BY T1.point_name ASC;
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.point_name        AS point,
-coffee_coop_db-#     T1.address_line      AS address,
-coffee_coop_db-#     T1.municipality_code AS municipality_code,
-coffee_coop_db-#     T1.phone_number      AS phone_number,
-coffee_coop_db-#     T1.is_active         AS is_active
-coffee_coop_db-# FROM buy.collection_points AS T1
-coffee_coop_db-# WHERE NOT T1.is_active
-coffee_coop_db-#    OR T1.phone_number IS NULL
-coffee_coop_db-# ORDER BY T1.point_name ASC;
              point              |        address         | municipality_code | phone_number | is_active
 --------------------------------+------------------------+-------------------+--------------+-----------
  Punto de Compra Aipe 1         | Carrera 13 # 17-16     | 41016             |              | t

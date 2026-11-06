@@ -1,6 +1,6 @@
 -- Exercise 03 - c
 -- Certifications with premium per kg >= 350 COP
-/*
+
 SELECT
     T1.certification_name AS certification,
     T1.issuing_body       AS issuer,
@@ -10,7 +10,7 @@ FROM farm.certifications AS T1
 WHERE T1.premium_per_kg >= 350
 ORDER BY T1.premium_per_kg DESC;
 
-
+/*
 coffee_coop_db=# SELECT
 coffee_coop_db-#     T1.certification_name AS certification,
 coffee_coop_db-#     T1.issuing_body       AS issuer,

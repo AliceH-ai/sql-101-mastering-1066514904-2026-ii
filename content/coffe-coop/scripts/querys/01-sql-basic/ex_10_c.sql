@@ -1,13 +1,17 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.settlement_id         AS settlement,       -- ?
-coffee_coop_db-#     T1.net_weight_kg         AS net_weight_kg,
-coffee_coop_db-#     T1.price_per_kg_applied  AS price_per_kg,
-coffee_coop_db-#     T1.gross_amount          AS gross_cop,
-coffee_coop_db-#     T1.net_weight_kg * T1.price_per_kg_applied AS check_gross_cop,
-coffee_coop_db-#     T1.deductions_amount     AS deductions_cop    -- ?
-coffee_coop_db-# FROM pay.settlements AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'        -- ?
-coffee_coop_db-#   AND T1.deductions_amount = 0;
+-- Exercise 10 - c
+-- Settlements from 2026-09-30 without deductions, with a calculated check column (net_weight_kg * price_per_kg_applied) to compare against the generated gross_amount
+
+SELECT
+T1.settlement_id         AS settlement,       
+T1.net_weight_kg         AS net_weight_kg
+T1.price_per_kg_applied  AS price_per_kg,
+T1.gross_amount          AS gross_cop,
+T1.net_weight_kg * T1.price_per_kg_applied AS check_gross_cop,
+T1.deductions_amount     AS deductions_cop    
+FROM pay.settlements AS T1
+WHERE T1.delivery_id LIKE 'DLV-20260930-%'        
+AND T1.deductions_amount = 0;
+/*
      settlement      | net_weight_kg | price_per_kg | gross_cop  | check_gross_cop | deductions_cop
 ---------------------+---------------+--------------+------------+-----------------+----------------
  STL-20261002-000019 |        287.72 |     21454.00 | 6172744.88 |    6172744.8800 |           0.00

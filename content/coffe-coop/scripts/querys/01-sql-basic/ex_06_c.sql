@@ -1,13 +1,18 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.document_number  AS document,
-coffee_coop_db-#     T1.first_name       AS first_name,
-coffee_coop_db-#     T1.last_name        AS last_name,
-coffee_coop_db-#     T1.membership_date  AS membership_date,
-coffee_coop_db-#     T1.is_active        AS is_active
-coffee_coop_db-# FROM farm.farmers AS T1
-coffee_coop_db-# WHERE T1.municipality_code = '54518'
-coffee_coop_db-#   AND NOT T1.is_active
-coffee_coop_db-# ORDER BY T1.membership_date ASC;
+-- Exercise 06 - c
+-- Members from Pamplona (54518) with an inactive membership, sorted by affiliation date from oldest to newest
+
+
+SELECT
+    T1.document_number  AS document,
+    T1.first_name       AS first_name,
+    T1.last_name        AS last_name,
+    T1.membership_date  AS membership_date,
+    T1.is_active        AS is_active
+FROM farm.farmers AS T1
+WHERE T1.municipality_code = '54518'
+AND NOT T1.is_active
+ORDER BY T1.membership_date ASC;
+ /*
   document  |    first_name    |     last_name      | membership_date | is_active
 ------------+------------------+--------------------+-----------------+-----------
  230971064  | Manuel           | Agudelo JimÚnez    | 1997-03-29      | f

@@ -1,10 +1,11 @@
-/**  Ejercicio 1 inciso c
-Consulte ´unicamente el codigo y el nombre del departamento, renombrando las
-columnas como code y department.
-coffee_coop_db=# SELECT
-coffee_coop_db-# T1.department_code AS code,
-coffee_coop_db-# T1.department_name AS department
-coffee_coop_db-# FROM geo.departments AS T1;
+Ejercicio 1 inciso b
+Consulte unicamente el codigo y el nombre del departamento, renombrando las
+columnas como code y department
+ SELECT
+T1.department_code AS code,
+T1.department_name AS department
+FROM geo.departments AS T1;
+/*
  code |                        department
 ------+----------------------------------------------------------
  05   | Antioquia

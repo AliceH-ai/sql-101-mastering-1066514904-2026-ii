@@ -1,12 +1,18 @@
+-- Exercise 08 - b
+-- Rejected deliveries from 2026-09-30 with a calculated column for average kg per bag (gross_weight_kg / bag_count)
+
+
+
+ SELECT
+     T1.delivery_id     AS delivery,
+     T1.gross_weight_kg AS gross_weight_kg,
+     T1.bag_count       AS bag_count,
+     T1.gross_weight_kg / T1.bag_count AS avg_kg_per_bag
+ FROM buy.deliveries AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+   AND T1.status = 'rejected';
+
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.delivery_id     AS delivery,
-coffee_coop_db-#     T1.gross_weight_kg AS gross_weight_kg,
-coffee_coop_db-#     T1.bag_count       AS bag_count,
-coffee_coop_db-#     T1.gross_weight_kg / T1.bag_count AS avg_kg_per_bag
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-#   AND T1.status = 'rejected';
       delivery       | gross_weight_kg | bag_count |   avg_kg_per_bag
 ---------------------+-----------------+-----------+---------------------
  DLV-20260930-000165 |          348.59 |         6 | 58.0983333333333333

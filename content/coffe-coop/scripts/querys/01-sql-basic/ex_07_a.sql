@@ -1,12 +1,18 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.farm_name      AS farm,
-coffee_coop_db-#     T1.rural_district AS rural_district,
-coffee_coop_db-#     T1.total_area_ha  AS area_ha,
-coffee_coop_db-#     T1.altitude_masl  AS altitude_masl
-coffee_coop_db-# FROM farm.farms AS T1
-coffee_coop_db-# WHERE T1.municipality_code = '54518'
-coffee_coop_db-#   AND T1.altitude_masl > 1800
-coffee_coop_db-# ORDER BY T1.altitude_masl DESC;
+-- Exercise 07 - a
+-- Farms in Pamplona (54518) above 1800 m.a.s.l.: farm, rural district, total area and altitude with aliases, sorted by altitude descending
+
+
+
+SELECT
+     T1.farm_name      AS farm,
+     T1.rural_district AS rural_district,
+     T1.total_area_ha  AS area_ha,
+    T1.altitude_masl  AS altitude_masl
+ FROM farm.farms AS T1
+ WHERE T1.municipality_code = '54518'
+ AND T1.altitude_masl > 1800
+ ORDER BY T1.altitude_masl DESC;
+/*
       farm      |    rural_district    | area_ha | altitude_masl
 ----------------+----------------------+---------+---------------
  Santa Clara    | La Legua             |    2.62 |          2300

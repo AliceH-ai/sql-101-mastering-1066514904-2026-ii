@@ -1,12 +1,13 @@
-/** Ejercicio 2 inciso a
-Consulte el nombre, la especie y la descripci´on de las variedades resistentes
+Ejercicio 2 inciso a
+Consulte el nombre, la especie y la descripcion de las variedades resistentes
 a la roya, con los alias variety, species y description.
-coffee_coop_db=# SELECT
-coffee_coop_db-# T1.variety_name AS variety,
-coffee_coop_db-# T1.species AS species,
-coffee_coop_db-# T1.description AS description
-coffee_coop_db-# FROM farm.coffee_varieties AS T1
-coffee_coop_db-# WHERE T1.is_rust_resistant = TRUE;
+SELECT
+T1.variety_name AS variety,
+T1.species AS species,
+T1.description AS description
+FROM farm.coffee_varieties AS T1
+WHERE T1.is_rust_resistant = TRUE;
+/*
   variety   | species |                             description
 ------------+---------+---------------------------------------------------------------------
  Castillo   | arabica | Variedad colombiana resistente a la roya, la más sembrada del país.

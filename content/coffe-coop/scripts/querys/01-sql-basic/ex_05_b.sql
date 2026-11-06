@@ -1,6 +1,6 @@
 -- Exercise 05 - b
 -- Collection points without a registered phone number, ordered by name
-/*
+
 SELECT
     T1.point_name        AS point,
     T1.address_line      AS address,
@@ -10,14 +10,7 @@ FROM buy.collection_points AS T1
 WHERE T1.phone_number IS NULL
 ORDER BY T1.point_name ASC;
 
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.point_name        AS point,
-coffee_coop_db-#     T1.address_line      AS address,
-coffee_coop_db-#     T1.municipality_code AS municipality_code,
-coffee_coop_db-#     T1.phone_number      AS phone_number
-coffee_coop_db-# FROM buy.collection_points AS T1
-coffee_coop_db-# WHERE T1.phone_number IS NULL
-coffee_coop_db-# ORDER BY T1.point_name ASC;
+/*
              point              |        address         | municipality_code | phone_number
 --------------------------------+------------------------+-------------------+--------------
  Punto de Compra Aipe 1         | Carrera 13 # 17-16     | 41016             |

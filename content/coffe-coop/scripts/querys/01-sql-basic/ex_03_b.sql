@@ -1,7 +1,7 @@
 -- Exercise 03 - b
 -- Certifications with premium per kg and calculated premium per load (125 kg)
 
-/*SELECT
+SELECT
     T1.certification_name AS certification,
     T1.issuing_body       AS issuer,
     T1.premium_per_kg     AS premium_per_kg_cop,
@@ -9,14 +9,7 @@
 FROM farm.certifications AS T1
 ORDER BY T1.premium_per_kg DESC;
 
-coffee_coop_db=#
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.certification_name AS certification,
-coffee_coop_db-#     T1.issuing_body       AS issuer,
-coffee_coop_db-#     T1.premium_per_kg     AS premium_per_kg_cop,
-coffee_coop_db-#     T1.premium_per_kg * 125 AS premium_per_load_cop
-coffee_coop_db-# FROM farm.certifications AS T1
-coffee_coop_db-# ORDER BY T1.premium_per_kg DESC;
+/*
     certification    |              issuer               | premium_per_kg_cop | premium_per_load_cop
 ---------------------+-----------------------------------+--------------------+----------------------
  Orgßnico            | Ente certificador orgßnico        |             800.00 |            100000.00
