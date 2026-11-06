@@ -1,15 +1,20 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.delivery_id     AS delivery,
-coffee_coop_db-#     T2.farm_name       AS farm,
-coffee_coop_db-#     T3.point_name      AS collection_point,
-coffee_coop_db-#     T1.gross_weight_kg AS gross_weight_kg
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# INNER JOIN farm.farms AS T2
-coffee_coop_db-#     ON T1.farm_id = T2.farm_id
-coffee_coop_db-# INNER JOIN buy.collection_points AS T3
-coffee_coop_db-#     ON T1.collection_point_id = T3.collection_point_id
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-# ORDER BY T3.point_name ASC, T1.gross_weight_kg DESC;
+-- Exercise 01 - c
+-- INNER JOIN: deliveries from 2026-09-30 (LIKE on delivery_id) with farm name, collection point name and gross weight, sorted by collection point and then by weight descending
+
+ SELECT
+     T1.delivery_id     AS delivery,
+     T2.farm_name       AS farm,
+     T3.point_name      AS collection_point,
+     T1.gross_weight_kg AS gross_weight_kg
+ FROM buy.deliveries AS T1
+ INNER JOIN farm.farms AS T2
+     ON T1.farm_id = T2.farm_id
+ INNER JOIN buy.collection_points AS T3
+     ON T1.collection_point_id = T3.collection_point_id
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+ ORDER BY T3.point_name ASC, T1.gross_weight_kg DESC;
+
+/*
       delivery       |       farm       |               collection_point               | gross_weight_kg
 ---------------------+------------------+----------------------------------------------+-----------------
  DLV-20260930-000164 | La Divisa        | Punto de Compra AbriaquÃ­ 1                   |           48.18

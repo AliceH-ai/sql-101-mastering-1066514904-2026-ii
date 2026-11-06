@@ -1,14 +1,18 @@
+-- Exercise 08 - c
+-- GROUP BY: deliveries from 2026-09-30 per collection point with delivery count, total gross weight and average gross weight (rounded to 2 decimals)
+ 
+ 
+ SELECT
+     T2.point_name                     AS collection_point,
+     COUNT(*)                          AS deliveries_count,
+     SUM(T1.gross_weight_kg)           AS total_gross_kg,
+     ROUND(AVG(T1.gross_weight_kg), 2) AS avg_gross_kg
+ FROM buy.deliveries AS T1
+ INNER JOIN buy.collection_points AS T2
+     ON T1.collection_point_id = T2.collection_point_id
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+ GROUP BY T2.point_name;
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T2.point_name                     AS collection_point,
-coffee_coop_db-#     COUNT(*)                          AS deliveries_count,
-coffee_coop_db-#     SUM(T1.gross_weight_kg)           AS total_gross_kg,
-coffee_coop_db-#     ROUND(AVG(T1.gross_weight_kg), 2) AS avg_gross_kg
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# INNER JOIN buy.collection_points AS T2
-coffee_coop_db-#     ON T1.collection_point_id = T2.collection_point_id
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-# GROUP BY T2.point_name;
                collection_point               | deliveries_count | total_gross_kg | avg_gross_kg
 ----------------------------------------------+------------------+----------------+--------------
  Punto de Compra AbriaquÃ­ 1                   |                1 |          48.18 |        48.18

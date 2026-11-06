@@ -1,13 +1,18 @@
-/*coffee_coop_db=#
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.document_number AS document,
-coffee_coop_db-#     T1.first_name      AS first_name,
-coffee_coop_db-#     T1.last_name       AS last_name,
-coffee_coop_db-#     T2.farm_name       AS farm
-coffee_coop_db-# FROM farm.farmers AS T1
-coffee_coop_db-# LEFT JOIN farm.farms AS T2
-coffee_coop_db-#     ON T1.farmer_id = T2.farmer_id
-coffee_coop_db-# WHERE T1.municipality_code = '54518';
+-- Exercise 02 - a
+-- LEFT JOIN: all farmers from Pamplona (54518) with their farm name, including farmers with no registered farm
+ 
+ 
+ SELECT
+     T1.document_number AS document,
+     T1.first_name      AS first_name,
+     T1.last_name       AS last_name,
+     T2.farm_name       AS farm
+      FROM farm.farmers AS T1
+ LEFT JOIN farm.farms AS T2
+     ON T1.farmer_id = T2.farmer_id
+ WHERE T1.municipality_code = '54518';
+
+/*
   document  |    first_name     |     last_name      |       farm
 ------------+-------------------+--------------------+------------------
  1061690671 | Guillermo Pedro   | Arias RodrÃ­guez    | La Selva

@@ -1,20 +1,25 @@
+-- Exercise 10 - a
+-- JOIN + GROUP BY (four tables): per farmer, number of settlements and total net amount for September 2026 deliveries, sorted by total net amount descending
+
+
+
+ SELECT
+     T4.document_number      AS document,
+     T4.first_name           AS first_name,
+     T4.last_name            AS last_name,
+     COUNT(T1.settlement_id) AS settlements_count,
+     SUM(T1.net_amount)      AS total_net_cop
+ FROM pay.settlements AS T1
+ INNER JOIN buy.deliveries AS T2
+     ON T1.delivery_id = T2.delivery_id
+ INNER JOIN farm.farms AS T3
+     ON T2.farm_id = T3.farm_id
+ INNER JOIN farm.farmers AS T4
+     ON T3.farmer_id = T4.farmer_id
+ WHERE T2.delivery_id LIKE 'DLV-202609%'
+ GROUP BY T4.farmer_id, T4.document_number, T4.first_name, T4.last_name
+ ORDER BY total_net_cop DESC;
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T4.document_number      AS document,
-coffee_coop_db-#     T4.first_name           AS first_name,
-coffee_coop_db-#     T4.last_name            AS last_name,
-coffee_coop_db-#     COUNT(T1.settlement_id) AS settlements_count,
-coffee_coop_db-#     SUM(T1.net_amount)      AS total_net_cop
-coffee_coop_db-# FROM pay.settlements AS T1
-coffee_coop_db-# INNER JOIN buy.deliveries AS T2
-coffee_coop_db-#     ON T1.delivery_id = T2.delivery_id
-coffee_coop_db-# INNER JOIN farm.farms AS T3
-coffee_coop_db-#     ON T2.farm_id = T3.farm_id
-coffee_coop_db-# INNER JOIN farm.farmers AS T4
-coffee_coop_db-#     ON T3.farmer_id = T4.farmer_id
-coffee_coop_db-# WHERE T2.delivery_id LIKE 'DLV-202609%'
-coffee_coop_db-# GROUP BY T4.farmer_id, T4.document_number, T4.first_name, T4.last_name
-coffee_coop_db-# ORDER BY total_net_cop DESC;
   document  |     first_name      |       last_name       | settlements_count | total_net_cop
 ------------+---------------------+-----------------------+-------------------+---------------
  30933664   | Cristian            | GarcÃ­a Contreras      |                 3 |   15493357.77

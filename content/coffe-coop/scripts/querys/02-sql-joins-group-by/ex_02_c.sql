@@ -1,13 +1,19 @@
-/*coffee_coop_db=#
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.delivery_id AS delivery,
-coffee_coop_db-#     T2.analysis_id AS analysis,
-coffee_coop_db-#     T2.cup_score   AS cup_score
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# LEFT JOIN buy.quality_analyses AS T2
-coffee_coop_db-#     ON T1.delivery_id = T2.delivery_id
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-# ORDER BY T1.delivery_id ASC;
+-- Exercise 02 - c
+-- LEFT JOIN: all deliveries from 2026-09-30 with quality analysis code and cup score, including deliveries not yet analyzed, sorted by delivery code
+
+
+
+ SELECT
+     T1.delivery_id AS delivery,
+     T2.analysis_id AS analysis,
+     T2.cup_score   AS cup_score
+ FROM buy.deliveries AS T1
+ LEFT JOIN buy.quality_analyses AS T2
+     ON T1.delivery_id = T2.delivery_id
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+ ORDER BY T1.delivery_id ASC;
+
+/*
       delivery       |      analysis      | cup_score
 ---------------------+--------------------+-----------
  DLV-20260930-000001 |                    |

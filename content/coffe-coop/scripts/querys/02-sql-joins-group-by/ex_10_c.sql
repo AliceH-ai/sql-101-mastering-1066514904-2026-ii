@@ -1,16 +1,19 @@
+-- Exercise 10 - c
+-- JOIN + GROUP BY + HAVING: per municipality of Norte de Santander, farm count, total area and average altitude (rounded to 2 decimals), only municipalities with at least 5 farms, sorted by average altitude descending
+
+ SELECT
+     T1.municipality_name            AS municipality,
+     COUNT(T2.farm_id)               AS farms_count,
+     SUM(T2.total_area_ha)           AS total_area_ha,
+     ROUND(AVG(T2.altitude_masl), 2) AS avg_altitude_masl
+ FROM geo.municipalities AS T1
+ INNER JOIN farm.farms AS T2
+     ON T1.municipality_code = T2.municipality_code
+ WHERE T1.department_code = '54'
+ GROUP BY T1.municipality_code, T1.municipality_name
+ HAVING COUNT(T2.farm_id) >= 5
+ ORDER BY avg_altitude_masl DESC;
 /*
-coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.municipality_name            AS municipality,
-coffee_coop_db-#     COUNT(T2.farm_id)               AS farms_count,
-coffee_coop_db-#     SUM(T2.total_area_ha)           AS total_area_ha,
-coffee_coop_db-#     ROUND(AVG(T2.altitude_masl), 2) AS avg_altitude_masl
-coffee_coop_db-# FROM geo.municipalities AS T1
-coffee_coop_db-# INNER JOIN farm.farms AS T2
-coffee_coop_db-#     ON T1.municipality_code = T2.municipality_code
-coffee_coop_db-# WHERE T1.department_code = '54'
-coffee_coop_db-# GROUP BY T1.municipality_code, T1.municipality_name
-coffee_coop_db-# HAVING COUNT(T2.farm_id) >= 5
-coffee_coop_db-# ORDER BY avg_altitude_masl DESC;
    municipality    | farms_count | total_area_ha | avg_altitude_masl
 -------------------+-------------+---------------+-------------------
  Ragonvalia        |         377 |        990.30 |           1688.35

@@ -1,11 +1,16 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T2.point_name      AS collection_point,
-coffee_coop_db-#     T1.delivery_id     AS delivery,
-coffee_coop_db-#     T1.gross_weight_kg AS gross_weight_kg
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# RIGHT JOIN buy.collection_points AS T2
-coffee_coop_db-#     ON T1.collection_point_id = T2.collection_point_id
-coffee_coop_db-#    AND T1.delivery_id LIKE 'DLV-20260930-%';
+ -- Exercise 03 - a
+-- RIGHT JOIN: every collection point with the code and gross weight of the deliveries received on 2026-09-30, including points with no deliveries (date condition in ON)
+ 
+ 
+ SELECT
+     T2.point_name      AS collection_point,
+     T1.delivery_id     AS delivery,
+     T1.gross_weight_kg AS gross_weight_kg
+ FROM buy.deliveries AS T1
+ RIGHT JOIN buy.collection_points AS T2
+     ON T1.collection_point_id = T2.collection_point_id
+    AND T1.delivery_id LIKE 'DLV-20260930-%';
+/*
                collection_point               |      delivery       | gross_weight_kg
 ----------------------------------------------+---------------------+-----------------
  Punto de Compra JambalÃ³ 1                    | DLV-20260930-000001 |           51.53

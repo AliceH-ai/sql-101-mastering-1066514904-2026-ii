@@ -1,16 +1,20 @@
-/* coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.farm_name                AS farm,
-coffee_coop_db-#     COUNT(T3.analysis_id)       AS analyses_count,
-coffee_coop_db-#     ROUND(AVG(T3.cup_score), 2) AS avg_cup_score
-coffee_coop_db-# FROM farm.farms AS T1
-coffee_coop_db-# INNER JOIN buy.deliveries AS T2
-coffee_coop_db-#     ON T1.farm_id = T2.farm_id
-coffee_coop_db-# INNER JOIN buy.quality_analyses AS T3
-coffee_coop_db-#     ON T2.delivery_id = T3.delivery_id
-coffee_coop_db-# GROUP BY T1.farm_id, T1.farm_name
-coffee_coop_db-# HAVING COUNT(T3.analysis_id) >= 3
-coffee_coop_db-#    AND AVG(T3.cup_score) >= 84
-coffee_coop_db-# ORDER BY avg_cup_score DESC;
+ -- Exercise 09 - c
+-- JOIN + GROUP BY + HAVING (three tables): farms with at least 3 quality analyses and an average cup score >= 84 (rounded to 2 decimals), sorted by average descending
+ 
+ SELECT
+     T1.farm_name                AS farm,
+     COUNT(T3.analysis_id)       AS analyses_count,
+     ROUND(AVG(T3.cup_score), 2) AS avg_cup_score
+ FROM farm.farms AS T1
+ INNER JOIN buy.deliveries AS T2
+     ON T1.farm_id = T2.farm_id
+ INNER JOIN buy.quality_analyses AS T3
+     ON T2.delivery_id = T3.delivery_id
+ GROUP BY T1.farm_id, T1.farm_name
+ HAVING COUNT(T3.analysis_id) >= 3
+    AND AVG(T3.cup_score) >= 84
+ ORDER BY avg_cup_score DESC;
+ /*
        farm       | analyses_count | avg_cup_score
 ------------------+----------------+---------------
  El Caney         |              3 |         90.00

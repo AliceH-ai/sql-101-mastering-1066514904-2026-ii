@@ -1,16 +1,21 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T2.farm_name         AS farm,
-coffee_coop_db-#     T2.rural_district    AS rural_district,
-coffee_coop_db-#     T1.municipality_name AS municipality,
-coffee_coop_db-#     T3.first_name        AS first_name,
-coffee_coop_db-#     T3.last_name         AS last_name
-coffee_coop_db-# FROM geo.municipalities AS T1
-coffee_coop_db-# INNER JOIN farm.farms AS T2
-coffee_coop_db-#     ON T1.municipality_code = T2.municipality_code
-coffee_coop_db-# INNER JOIN farm.farmers AS T3
-coffee_coop_db-#     ON T2.farmer_id = T3.farmer_id
-coffee_coop_db-# WHERE T1.municipality_code = '54518'
-coffee_coop_db-# ORDER BY T3.last_name ASC;
+-- Exercise 01 - b
+-- INNER JOIN (three tables): farms in Pamplona (54518) with rural district, municipality name and owner's first and last name, sorted by owner's last name
+
+ SELECT
+     T2.farm_name         AS farm,
+     T2.rural_district    AS rural_district,
+     T1.municipality_name AS municipality,
+     T3.first_name        AS first_name,
+     T3.last_name         AS last_name
+ FROM geo.municipalities AS T1
+ INNER JOIN farm.farms AS T2
+     ON T1.municipality_code = T2.municipality_code
+ INNER JOIN farm.farmers AS T3
+     ON T2.farmer_id = T3.farmer_id
+ WHERE T1.municipality_code = '54518'
+ ORDER BY T3.last_name ASC;
+
+/*
        farm       |    rural_district    | municipality |     first_name     |      last_name
 ------------------+----------------------+--------------+--------------------+---------------------
  El JardÃ­n        | El Escorial          | Pamplona     | Manuel             | Agudelo JimÃ©nez

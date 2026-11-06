@@ -1,12 +1,18 @@
-/* coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.municipality_code AS municipality_code,
-coffee_coop_db-#     T1.municipality_name AS municipality,
-coffee_coop_db-#     T2.department_name   AS department
-coffee_coop_db-# FROM geo.municipalities AS T1
-coffee_coop_db-# INNER JOIN geo.departments AS T2
-coffee_coop_db-#     ON T1.department_code = T2.department_code
-coffee_coop_db-# WHERE T1.department_code = '54'
-coffee_coop_db-# ORDER BY T1.municipality_name ASC;
+-- Exercise 01 - a
+-- INNER JOIN: municipalities of Norte de Santander (54) with their department name, sorted alphabetically by municipality
+
+
+ SELECT
+     T1.municipality_code AS municipality_code,
+     T1.municipality_name AS municipality,
+     T2.department_name   AS department
+ FROM geo.municipalities AS T1
+ INNER JOIN geo.departments AS T2
+     ON T1.department_code = T2.department_code
+ WHERE T1.department_code = '54'
+ ORDER BY T1.municipality_name ASC;
+/*
+
  municipality_code |   municipality    |     department
 -------------------+-------------------+--------------------
  54003             | Ábrego            | Norte De Santander

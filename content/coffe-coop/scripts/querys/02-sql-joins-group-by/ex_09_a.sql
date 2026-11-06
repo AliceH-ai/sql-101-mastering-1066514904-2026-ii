@@ -1,12 +1,18 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.department_name          AS department,
-coffee_coop_db-#     COUNT(T2.municipality_code) AS municipalities_count
-coffee_coop_db-# FROM geo.departments AS T1
-coffee_coop_db-# INNER JOIN geo.municipalities AS T2
-coffee_coop_db-#     ON T1.department_code = T2.department_code
-coffee_coop_db-# GROUP BY T1.department_name
-coffee_coop_db-# HAVING COUNT(T2.municipality_code) > 40
-coffee_coop_db-# ORDER BY municipalities_count DESC;
+-- Exercise 09 - a
+-- HAVING: departments with more than 40 municipalities, sorted by municipality count descending
+
+
+
+ SELECT
+     T1.department_name          AS department,
+     COUNT(T2.municipality_code) AS municipalities_count
+ FROM geo.departments AS T1
+ INNER JOIN geo.municipalities AS T2
+     ON T1.department_code = T2.department_code
+ GROUP BY T1.department_name
+ HAVING COUNT(T2.municipality_code) > 40
+ ORDER BY municipalities_count DESC;
+/*
    department    | municipalities_count
 -----------------+----------------------
  Antioquia       |                  125

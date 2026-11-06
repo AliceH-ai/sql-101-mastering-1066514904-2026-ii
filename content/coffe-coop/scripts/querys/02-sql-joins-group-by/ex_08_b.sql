@@ -1,11 +1,16 @@
-/*coffee_coop_db=# SELECT
-coffee_coop_db-#     T1.coffee_type          AS coffee_type,
-coffee_coop_db-#     COUNT(*)                AS deliveries_count,
-coffee_coop_db-#     SUM(T1.gross_weight_kg) AS total_gross_kg
-coffee_coop_db-# FROM buy.deliveries AS T1
-coffee_coop_db-# WHERE T1.delivery_id LIKE 'DLV-20260930-%'
-coffee_coop_db-# GROUP BY T1.coffee_type
-coffee_coop_db-# ORDER BY total_gross_kg DESC;
+-- Exercise 08 - b
+-- GROUP BY: deliveries from 2026-09-30 per coffee type with delivery count and total gross weight, sorted by total weight descending
+
+
+SELECT
+     T1.coffee_type          AS coffee_type,
+     COUNT(*)                AS deliveries_count,
+     SUM(T1.gross_weight_kg) AS total_gross_kg
+ FROM buy.deliveries AS T1
+ WHERE T1.delivery_id LIKE 'DLV-20260930-%'
+ GROUP BY T1.coffee_type
+ ORDER BY total_gross_kg DESC;
+ /*
   coffee_type  | deliveries_count | total_gross_kg
 ---------------+------------------+----------------
  dry_parchment |              278 |       48246.55
